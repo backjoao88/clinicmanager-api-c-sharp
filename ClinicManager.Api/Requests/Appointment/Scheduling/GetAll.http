@@ -1,2 +1,0 @@
-﻿GET http://localhost:5299/api/schedules
-Content-Type: application/json
