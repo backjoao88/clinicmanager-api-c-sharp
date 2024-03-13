@@ -1,0 +1,3 @@
+﻿GET http://localhost:5299/api/patients
+Accept: application/json
+###

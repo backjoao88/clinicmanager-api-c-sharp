@@ -1,0 +1,8 @@
+﻿POST http://localhost:5299/api/schedules
+Content-Type: application/json
+
+{
+  "idDoctor": "0a61f146-8452-49dc-21c5-08dc3f81198a",
+  "start": "2024-03-07T15:00:00-03:00",
+  "end": "2024-03-08T16:00:00-03:00"
+}

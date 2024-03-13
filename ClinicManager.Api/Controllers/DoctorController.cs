@@ -1,0 +1,57 @@
+﻿using ClinicManager.Api.Abstractions;
+using ClinicManager.Application.Commands.Doctors.Create;
+using ClinicManager.Application.Queries.Doctors.GetAll;
+using ClinicManager.Application.Queries.Doctors.GetById;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+
+namespace ClinicManager.Api.Controllers;
+
+[ApiController]
+[Route("/api/doctors")]
+public class DoctorController : ApiController
+{
+    private readonly IMediator _mediator;
+
+    public DoctorController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+
+    /// <summary>
+    /// Endpoint to save a new patient.
+    /// </summary>
+    /// <param name="createDoctorCommand"></param>
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> Post([FromBody] CreateDoctorCommand createDoctorCommand)
+    { 
+        var result = await _mediator.Send(createDoctorCommand);
+        return result.IsSuccess ? Created() : BadRequest(result.Error);
+    }
+    
+    /// <summary>
+    /// Endpoint to get a doctor by id.
+    /// </summary>
+    [HttpGet("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetById(Guid id)
+    {
+        var getDoctorByIdQuery = new GetDoctorByIdQuery();
+        getDoctorByIdQuery.Id = id;
+        var result = await _mediator.Send(getDoctorByIdQuery);
+        return result.IsSuccess ? Ok(result.Value) : NotFound(result.Error);
+    }
+    
+    /// <summary>
+    /// Endpoint to retrieve all doctors.
+    /// </summary>
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> Get()
+    { 
+        var doctors = await _mediator.Send(new GetAllDoctorsQuery());
+        return Ok(doctors);
+    }
+}

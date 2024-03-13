@@ -1,0 +1,7 @@
+﻿GET http://localhost:5299/api/doctors/d8d9c120-ce5c-4693-2869-08dc3f7c4c2e
+Content-Type: application/json
+
+{
+  "id": "d8d9c120-ce5c-4693-2869-08dc3f7c4c2e"
+}
+###
