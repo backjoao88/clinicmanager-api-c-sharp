@@ -1,4 +1,5 @@
 ﻿using ClinicManager.Domain.Core;
+using ClinicManager.Domain.Core.Doctors;
 using ClinicManager.Domain.Primitives;
 using ClinicManager.Domain.Repositories;
 using MediatR;

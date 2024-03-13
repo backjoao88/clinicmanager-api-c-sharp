@@ -1,6 +1,6 @@
 ﻿using ClinicManager.Domain.Primitives;
 
-namespace ClinicManager.Domain.Core;
+namespace ClinicManager.Domain.Core.Doctors;
 
 /// <inheritdoc/>>
 public class Doctor : Entity

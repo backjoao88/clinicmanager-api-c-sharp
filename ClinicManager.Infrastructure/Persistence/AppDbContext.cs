@@ -1,4 +1,6 @@
 ﻿using ClinicManager.Domain.Core;
+using ClinicManager.Domain.Core.Doctors;
+using ClinicManager.Domain.Core.Patient;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicManager.Infrastructure.Persistence;

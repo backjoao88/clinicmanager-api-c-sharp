@@ -1,4 +1,5 @@
 ﻿using ClinicManager.Domain.Core;
+using ClinicManager.Domain.Core.Patient;
 using ClinicManager.Domain.Primitives;
 using ClinicManager.Domain.Primitives.Errors;
 using ClinicManager.Domain.Repositories;
