@@ -1,4 +1,4 @@
-﻿namespace ClinicManager.Domain.Core.Enumeartions;
+﻿namespace ClinicManager.Domain.Core.Shared.Enumerations;
 
 /// <summary>
 /// Represents the week days.
