@@ -11,9 +11,9 @@ public class AppointmentConfiguration : BaseConfiguration<Appointment>
     {
         base.Configure(builder);
         builder.ToTable("tbl_Appointments");
-        builder.HasOne(o => o.Doctor).WithOne().HasForeignKey<Appointment>(o => o.IdDoctor).IsRequired()
+        builder.HasOne(o => o.Doctor).WithMany().HasForeignKey(o => o.IdDoctor).IsRequired()
             .OnDelete(DeleteBehavior.Restrict);
-        builder.HasOne(o => o.Patient).WithOne().HasForeignKey<Appointment>(o => o.IdPatient).IsRequired()
+        builder.HasOne(o => o.Patient).WithMany().HasForeignKey(o => o.IdPatient).IsRequired()
             .OnDelete(DeleteBehavior.Restrict);
         builder.Property(o => o.Start).IsRequired();
         builder.Property(o => o.End).IsRequired();

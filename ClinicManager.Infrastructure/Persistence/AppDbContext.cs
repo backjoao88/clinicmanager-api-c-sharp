@@ -1,8 +1,9 @@
-﻿using ClinicManager.Domain.Core;
-using ClinicManager.Domain.Core.Appointments;
+﻿using ClinicManager.Domain.Core.Appointments;
 using ClinicManager.Domain.Core.Doctors;
 using ClinicManager.Domain.Core.Doctors.Schedules;
 using ClinicManager.Domain.Core.Patients;
+using ClinicManager.Domain.Primitives;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicManager.Infrastructure.Persistence;
@@ -15,17 +16,25 @@ public class AppDbContext : DbContext
     /// <summary>
     /// Required by EFCore.
     /// </summary>
-    private AppDbContext()
+    private AppDbContext(IPublisher publisher)
     {
+        _publisher = publisher;
     }
 
     /// <summary>
     /// Base constructor.
     /// </summary>
     /// <param name="options"></param>
-    public AppDbContext(DbContextOptions options) : base(options)
+    /// <param name="publisher"></param>
+    public AppDbContext(DbContextOptions options, IPublisher publisher) : base(options)
     {
+        _publisher = publisher;
     }
+
+    /// <summary>
+    /// MediatR publisher property.
+    /// </summary>
+    private readonly IPublisher _publisher;
 
     public DbSet<Patient> Patients { get; set; } = null!;
     public DbSet<Doctor> Doctors { get; set; } = null!;
@@ -36,5 +45,22 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+    }
+
+    /// <summary>
+    /// Overrided save changes that publishes all messages before saving changes.
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default!)
+    {
+        var events = ChangeTracker
+            .Entries<Entity>()
+            .SelectMany(o => o.Entity.Events);
+        foreach(var ev in events)
+        {
+            _publisher.Publish(ev);
+        }
+        return base.SaveChangesAsync(cancellationToken);
     }
 }

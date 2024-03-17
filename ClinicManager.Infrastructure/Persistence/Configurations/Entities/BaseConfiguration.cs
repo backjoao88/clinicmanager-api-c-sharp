@@ -13,5 +13,6 @@ public class BaseConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> wher
     public virtual void Configure(EntityTypeBuilder<TEntity> builder)
     {
         builder.HasKey(o => o.Id);
+        builder.Ignore(o => o.Events);
     }
 }
