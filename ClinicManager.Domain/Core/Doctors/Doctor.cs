@@ -1,4 +1,5 @@
-﻿using ClinicManager.Domain.Primitives;
+﻿using ClinicManager.Domain.Core.Doctors.Schedules;
+using ClinicManager.Domain.Primitives;
 
 namespace ClinicManager.Domain.Core.Doctors;
 
@@ -16,7 +17,9 @@ public class Doctor : Entity
     }
     public string FirstName { get; private set; } = null!;
     public string LastName { get; private set; } = null!;
-
+    public Guid IdSchedule { get; private set; }
+    public Schedule Schedule { get; private set; } = null!;
+    
     /// <summary>
     /// Checks if the current doctor is available in a range of dates.
     /// </summary>

@@ -1,9 +1,8 @@
-﻿using ClinicManager.Domain.Core;
-using ClinicManager.Domain.Core.Patient;
+﻿using ClinicManager.Domain.Core.Patient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ClinicManager.Infrastructure.Persistence.Configurations.Entities;
+namespace ClinicManager.Infrastructure.Persistence.Configurations.Entities.Patients;
 
 /// <inheritdoc />
 public class PatientConfiguration : BaseConfiguration<Patient>
