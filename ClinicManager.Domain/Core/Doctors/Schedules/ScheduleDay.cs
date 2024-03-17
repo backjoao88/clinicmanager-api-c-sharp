@@ -7,7 +7,17 @@ namespace ClinicManager.Domain.Core.Doctors.Schedules;
 /// </summary>
 public class ScheduleDay : Entity
 {
+    public ScheduleDay(DateOnly day, Guid idSchedule)
+    {
+        Day = day;
+        IdSchedule = idSchedule;
+        Start = new TimeOnly(08, 00, 00);
+        End = new TimeOnly(17, 00, 00);
+    }
     public Guid IdSchedule { get; private set; }
+    public DateOnly Day { get; private set; }
+    public TimeOnly Start { get; }
+    public TimeOnly End { get; }
     private List<Slot> _busySlots = new();
     public List<Slot> BusySlots
     {

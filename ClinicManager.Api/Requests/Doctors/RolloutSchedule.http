@@ -1,0 +1,7 @@
+﻿POST http://localhost:5299/api/doctors/20AA6D16-FC78-4EEC-2533-08DC46B1C129/schedules
+Content-Type: application/json
+
+{
+  "idDoctor": "20AA6D16-FC78-4EEC-2533-08DC46B1C129",
+  "futureDays": 360
+}

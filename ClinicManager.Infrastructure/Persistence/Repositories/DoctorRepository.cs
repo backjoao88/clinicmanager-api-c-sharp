@@ -1,5 +1,5 @@
-﻿using ClinicManager.Domain.Core;
-using ClinicManager.Domain.Core.Doctors;
+﻿using ClinicManager.Domain.Core.Doctors;
+using ClinicManager.Domain.Core.Doctors.Schedules;
 using ClinicManager.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,5 +35,19 @@ public class DoctorRepository : IDoctorRepository
         return await _context
             .Doctors
             .ToListAsync();
+    }
+
+    public async Task AddSchedule(Schedule schedule)
+    {
+        await _context
+            .Schedules
+            .AddAsync(schedule);
+    }
+
+    public async Task<ScheduleDay?> ReadScheduleDay(DateOnly date)
+    {
+        return await _context
+            .SchedulesDays
+            .SingleOrDefaultAsync(o => o.Day == date);
     }
 }

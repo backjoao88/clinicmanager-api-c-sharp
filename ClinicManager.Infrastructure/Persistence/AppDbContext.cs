@@ -1,6 +1,7 @@
 ﻿using ClinicManager.Domain.Core;
 using ClinicManager.Domain.Core.Appointments;
 using ClinicManager.Domain.Core.Doctors;
+using ClinicManager.Domain.Core.Doctors.Schedules;
 using ClinicManager.Domain.Core.Patients;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +30,8 @@ public class AppDbContext : DbContext
     public DbSet<Patient> Patients { get; set; } = null!;
     public DbSet<Doctor> Doctors { get; set; } = null!;
     public DbSet<Appointment> Appointments { get; set; } = null!;
+    public DbSet<Schedule> Schedules { get; set; } = null!;
+    public DbSet<ScheduleDay> SchedulesDays { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

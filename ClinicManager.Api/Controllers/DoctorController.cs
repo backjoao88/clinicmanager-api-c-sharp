@@ -1,5 +1,6 @@
 ﻿using ClinicManager.Api.Abstractions;
 using ClinicManager.Application.Commands.Doctors.Create;
+using ClinicManager.Application.Commands.Doctors.RolloutSchedule;
 using ClinicManager.Application.Queries.Doctors.GetAll;
 using ClinicManager.Application.Queries.Doctors.GetById;
 using MediatR;
@@ -53,5 +54,17 @@ public class DoctorController : ApiController
     { 
         var doctors = await _mediator.Send(new GetAllDoctorsQuery());
         return Ok(doctors);
+    }
+    
+    /// <summary>
+    /// Endpoint to rollout a new schedule.
+    /// </summary>
+    [HttpPost("{idDoctor}/schedules")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> RolloutSchedule(Guid idDoctor, [FromBody] RolloutScheduleCommand rolloutScheduleCommand)
+    {
+        rolloutScheduleCommand.IdDoctor = idDoctor;
+        var result = await _mediator.Send(rolloutScheduleCommand);
+        return result.IsSuccess ? NoContent() : BadRequest(result.Error);
     }
 }

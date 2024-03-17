@@ -18,7 +18,6 @@
 
     <ItemGroup>
       <Folder Include="Commands\Doctors\CreateAvailability\" />
-      <Folder Include="Commands\Doctors\CreateSchedule\" />
     </ItemGroup>
 
 </Project>
