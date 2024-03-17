@@ -10,6 +10,11 @@ public class ScheduleDayConfiguration : BaseConfiguration<ScheduleDay>
     {
         base.Configure(builder);
         builder.ToTable("tbl_ScheduleDay");
-        builder.OwnsMany(o => o.BusySlots);
+        builder.OwnsMany(o => o.BusySlots, options =>
+        {
+            options.ToTable("tbl_Slots");
+            options.Property(o => o.Start).IsRequired();
+            options.Property(o => o.End).IsRequired();
+        });
     }  
 }
