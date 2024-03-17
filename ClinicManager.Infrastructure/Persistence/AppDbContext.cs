@@ -1,6 +1,7 @@
 ﻿using ClinicManager.Domain.Core;
+using ClinicManager.Domain.Core.Appointments;
 using ClinicManager.Domain.Core.Doctors;
-using ClinicManager.Domain.Core.Patient;
+using ClinicManager.Domain.Core.Patients;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicManager.Infrastructure.Persistence;
@@ -27,6 +28,7 @@ public class AppDbContext : DbContext
 
     public DbSet<Patient> Patients { get; set; } = null!;
     public DbSet<Doctor> Doctors { get; set; } = null!;
+    public DbSet<Appointment> Appointments { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

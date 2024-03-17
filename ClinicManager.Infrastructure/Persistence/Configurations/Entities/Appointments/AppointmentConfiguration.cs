@@ -1,0 +1,21 @@
+﻿using ClinicManager.Domain.Core.Appointments;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace ClinicManager.Infrastructure.Persistence.Configurations.Entities.Appointments;
+
+/// <inheriteddoc/>
+public class AppointmentConfiguration : BaseConfiguration<Appointment>
+{
+    public override void Configure(EntityTypeBuilder<Appointment> builder)
+    {
+        base.Configure(builder);
+        builder.ToTable("tbl_Appointments");
+        builder.HasOne(o => o.Doctor).WithOne().HasForeignKey<Appointment>(o => o.IdDoctor).IsRequired()
+            .OnDelete(DeleteBehavior.Restrict);
+        builder.HasOne(o => o.Patient).WithOne().HasForeignKey<Appointment>(o => o.IdPatient).IsRequired()
+            .OnDelete(DeleteBehavior.Restrict);
+        builder.Property(o => o.Start).IsRequired();
+        builder.Property(o => o.End).IsRequired();
+    }
+}

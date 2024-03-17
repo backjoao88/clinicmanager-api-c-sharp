@@ -1,4 +1,4 @@
-﻿using ClinicManager.Domain.Core.Patient;
+﻿using ClinicManager.Domain.Core.Patients;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
