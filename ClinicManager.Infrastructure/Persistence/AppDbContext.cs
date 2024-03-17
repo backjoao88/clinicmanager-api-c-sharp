@@ -41,6 +41,7 @@ public class AppDbContext : DbContext
     public DbSet<Appointment> Appointments { get; set; } = null!;
     public DbSet<Schedule> Schedules { get; set; } = null!;
     public DbSet<ScheduleDay> SchedulesDays { get; set; } = null!;
+    public DbSet<Slot> Slots { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

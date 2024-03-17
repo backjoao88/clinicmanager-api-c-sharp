@@ -27,7 +27,7 @@ public class ScheduleAppointmentCommandHandler : IRequestHandler<ScheduleAppoint
         }
         var appointmentStart = new DateTime(availableDay.Day, request.Start);
         var appointmentEnd = new DateTime(availableDay.Day, request.End);
-        var appointment = new Appointment(request.IdDoctor, request.IdPatient, appointmentStart, appointmentEnd);
+        var appointment = Appointment.Create(request.IdDoctor, request.IdPatient, appointmentStart, appointmentEnd);
         await _unitOfWork.AppointmentRepository.Add(appointment);
         await _unitOfWork.Complete();
         return Result.Ok();

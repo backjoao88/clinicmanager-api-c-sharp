@@ -44,6 +44,13 @@ public class DoctorRepository : IDoctorRepository
             .AddAsync(schedule);
     }
 
+    public async Task AddBusySlot(Slot slot)
+    {
+        await _context
+            .Slots
+            .AddAsync(slot);
+    }
+
     public async Task<ScheduleDay?> ReadScheduleDay(DateOnly date)
     {
         return await _context
