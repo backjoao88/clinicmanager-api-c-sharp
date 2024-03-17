@@ -7,6 +7,7 @@ namespace ClinicManager.Domain.Core.Doctors.Schedules;
 /// </summary>
 public class Schedule : Entity
 {
+    public Guid IdDoctor { get; private set; }
     private List<ScheduleDay> _days = new();
     public List<ScheduleDay> Days
     {

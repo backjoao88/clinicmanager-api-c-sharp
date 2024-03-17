@@ -1,4 +1,5 @@
 ﻿using ClinicManager.Domain.Core.Doctors;
+using ClinicManager.Domain.Core.Doctors.Schedules;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -11,7 +12,7 @@ public class DoctorConfiguration : BaseConfiguration<Doctor>
     {
         base.Configure(builder);
         builder.ToTable("tbl_Doctors");
-        builder.HasOne(o => o.Schedule).WithOne().IsRequired().HasForeignKey<Doctor>(o => o.IdSchedule)
+        builder.HasMany(o => o.Schedules).WithOne().HasForeignKey(o => o.IdDoctor).IsRequired()
             .OnDelete(DeleteBehavior.Restrict);
         builder.Property(o => o.FirstName).IsRequired();
         builder.Property(o => o.LastName).IsRequired();
