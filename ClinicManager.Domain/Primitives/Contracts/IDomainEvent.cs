@@ -1,6 +1,8 @@
-﻿namespace ClinicManager.Domain.Primitives;
+﻿using MediatR;
+
+namespace ClinicManager.Domain.Primitives.Contracts;
 
 /// <summary>
 /// Represents a contract to define a domain event.
 /// </summary>
-public interface IDomainEvent;
+public interface IDomainEvent : INotification;

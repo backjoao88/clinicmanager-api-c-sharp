@@ -4,7 +4,7 @@ using ClinicManager.Domain.Primitives.Errors;
 using ClinicManager.Domain.Repositories;
 using MediatR;
 
-namespace ClinicManager.Application.Commands.Appointments;
+namespace ClinicManager.Application.Appointments.Commands.Schedule;
 
 /// <summary>
 /// Represents the <see cref="ScheduleAppointmentCommand"/> handler.

@@ -17,7 +17,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Commands\Doctors\CreateAvailability\" />
+      <Folder Include="Appointments\Queries\" />
+      <Folder Include="Appointments\Views\" />
+      <Folder Include="Doctors\Commands\" />
+      <Folder Include="Doctors\Queries\" />
+      <Folder Include="Patients\Commands\" />
+      <Folder Include="Patients\Queries\" />
     </ItemGroup>
 
 </Project>

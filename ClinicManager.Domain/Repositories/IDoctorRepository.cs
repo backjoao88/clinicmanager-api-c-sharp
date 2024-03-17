@@ -13,5 +13,6 @@ public interface IDoctorRepository : IWritableRepository<Doctor>, IReadableRepos
     IReadableAllRepository<Doctor>
 {
     public Task AddSchedule(Schedule schedule);
+    public Task AddBusySlot(Slot slot);
     public Task<ScheduleDay?> ReadScheduleDay(DateOnly date);
 }

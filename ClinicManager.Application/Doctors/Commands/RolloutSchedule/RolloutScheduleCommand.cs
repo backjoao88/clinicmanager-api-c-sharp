@@ -1,7 +1,7 @@
 ﻿using ClinicManager.Domain.Primitives;
 using MediatR;
 
-namespace ClinicManager.Application.Commands.Doctors.RolloutSchedule;
+namespace ClinicManager.Application.Doctors.Commands.RolloutSchedule;
 
 /// <summary>
 /// Represents the create schedule command.

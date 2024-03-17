@@ -1,7 +1,7 @@
 ﻿using ClinicManager.Domain.Primitives;
 using MediatR;
 
-namespace ClinicManager.Application.Commands.Patients.Create;
+namespace ClinicManager.Application.Patients.Commands.Create;
 
 /// <summary>
 /// Represents the command to create a patient command.

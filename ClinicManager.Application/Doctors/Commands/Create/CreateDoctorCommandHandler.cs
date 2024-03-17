@@ -1,10 +1,9 @@
-﻿using ClinicManager.Domain.Core;
-using ClinicManager.Domain.Core.Doctors;
+﻿using ClinicManager.Domain.Core.Doctors;
 using ClinicManager.Domain.Primitives;
 using ClinicManager.Domain.Repositories;
 using MediatR;
 
-namespace ClinicManager.Application.Commands.Doctors.Create;
+namespace ClinicManager.Application.Doctors.Commands.Create;
 
 /// <summary>
 /// Represents the <see cref="CreateDoctorCommand"/> handler.

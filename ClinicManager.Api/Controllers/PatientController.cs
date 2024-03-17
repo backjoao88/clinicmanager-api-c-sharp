@@ -1,7 +1,7 @@
 ﻿using ClinicManager.Api.Abstractions;
-using ClinicManager.Application.Commands.Patients.Create;
-using ClinicManager.Application.Queries.Patients.GetAll;
-using ClinicManager.Application.Queries.Patients.GetById;
+using ClinicManager.Application.Patients.Commands.Create;
+using ClinicManager.Application.Patients.Queries.GetAll;
+using ClinicManager.Application.Patients.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

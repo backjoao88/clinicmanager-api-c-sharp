@@ -1,8 +1,8 @@
-﻿using ClinicManager.Application.ViewModels;
+﻿using ClinicManager.Application.Doctors.Views;
 using ClinicManager.Domain.Primitives;
 using MediatR;
 
-namespace ClinicManager.Application.Queries.Doctors.GetById;
+namespace ClinicManager.Application.Doctors.Queries.GetById;
 
 /// <summary>
 /// Represents a query to return a patient by id.

@@ -1,5 +1,5 @@
 ﻿using ClinicManager.Api.Abstractions;
-using ClinicManager.Application.Commands.Appointments;
+using ClinicManager.Application.Appointments.Commands.Schedule;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

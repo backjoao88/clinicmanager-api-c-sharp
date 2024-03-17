@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace ClinicManager.Application.ViewModels;
+﻿namespace ClinicManager.Application.Doctors.Views;
 
 /// <summary>
 /// Represents a patient view model.

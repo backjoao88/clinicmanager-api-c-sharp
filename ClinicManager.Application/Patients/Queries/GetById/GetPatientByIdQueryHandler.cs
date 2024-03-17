@@ -1,11 +1,10 @@
-﻿using ClinicManager.Domain.Core;
-using ClinicManager.Domain.Core.Patients;
+﻿using ClinicManager.Domain.Core.Patients;
 using ClinicManager.Domain.Primitives;
 using ClinicManager.Domain.Primitives.Errors;
 using ClinicManager.Domain.Repositories;
 using MediatR;
 
-namespace ClinicManager.Application.Queries.Patients.GetById;
+namespace ClinicManager.Application.Patients.Queries.GetById;
 
 /// <summary>
 /// Represents the <see cref="GetPatientByIdQuery"/> handler.

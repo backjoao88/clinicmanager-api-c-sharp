@@ -1,7 +1,7 @@
-﻿using ClinicManager.Application.ViewModels;
+﻿using ClinicManager.Application.Doctors.Views;
 using MediatR;
 
-namespace ClinicManager.Application.Queries.Doctors.GetAll;
+namespace ClinicManager.Application.Doctors.Queries.GetAll;
 
 /// <summary>
 /// Represents a query to retrieve all patients.

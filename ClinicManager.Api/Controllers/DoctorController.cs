@@ -1,8 +1,8 @@
 ﻿using ClinicManager.Api.Abstractions;
-using ClinicManager.Application.Commands.Doctors.Create;
-using ClinicManager.Application.Commands.Doctors.RolloutSchedule;
-using ClinicManager.Application.Queries.Doctors.GetAll;
-using ClinicManager.Application.Queries.Doctors.GetById;
+using ClinicManager.Application.Doctors.Commands.Create;
+using ClinicManager.Application.Doctors.Commands.RolloutSchedule;
+using ClinicManager.Application.Doctors.Queries.GetAll;
+using ClinicManager.Application.Doctors.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

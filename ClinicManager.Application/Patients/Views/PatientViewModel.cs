@@ -1,4 +1,4 @@
-﻿namespace ClinicManager.Application.ViewModels;
+﻿namespace ClinicManager.Application.Patients.Views;
 
 /// <summary>
 /// Represents a patient view model.

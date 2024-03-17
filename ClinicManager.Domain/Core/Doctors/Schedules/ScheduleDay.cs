@@ -24,4 +24,15 @@ public class ScheduleDay : Entity
         get => _busySlots;
         private set => _busySlots = value;
     }
+
+    /// <summary>
+    /// Adds a busy slot in the doctor schedule.
+    /// </summary>
+    /// <param name="slot"></param>
+    /// <returns></returns>
+    public Task AddBusySlot(Slot slot)
+    {
+        _busySlots.Add(slot);
+        return Task.CompletedTask;
+    }
 }

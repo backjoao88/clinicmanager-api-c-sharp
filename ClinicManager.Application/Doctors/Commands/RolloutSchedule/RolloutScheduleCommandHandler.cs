@@ -3,7 +3,7 @@ using ClinicManager.Domain.Primitives;
 using ClinicManager.Domain.Repositories;
 using MediatR;
 
-namespace ClinicManager.Application.Commands.Doctors.RolloutSchedule;
+namespace ClinicManager.Application.Doctors.Commands.RolloutSchedule;
 
 /// <summary>
 /// Represents the <see cref="RolloutScheduleCommand"/> handler.

@@ -1,10 +1,8 @@
-﻿using ClinicManager.Application.Queries.Patients.GetAll;
-using ClinicManager.Application.ViewModels;
-using ClinicManager.Domain.Core;
+﻿using ClinicManager.Application.Doctors.Views;
 using ClinicManager.Domain.Repositories;
 using MediatR;
 
-namespace ClinicManager.Application.Queries.Doctors.GetAll;
+namespace ClinicManager.Application.Doctors.Queries.GetAll;
 
 /// <summary>
 /// Represents the command to query all patients.

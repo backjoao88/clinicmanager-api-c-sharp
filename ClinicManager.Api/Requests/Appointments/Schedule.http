@@ -5,6 +5,6 @@ Content-Type: application/json
   "idDoctor": "20AA6D16-FC78-4EEC-2533-08DC46B1C129",
   "idPatient": "C65B0A46-88F7-443E-907D-08DC46B4A254",
   "day": "2025-01-12",
-  "start": "09:00:00",
-  "end": "10:00:00"
+  "start": "12:00:00",
+  "end": "13:00:00"
 }
