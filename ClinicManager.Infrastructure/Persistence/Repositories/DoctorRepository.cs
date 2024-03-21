@@ -26,6 +26,7 @@ public class DoctorRepository : IDoctorRepository
     {
         return await _context
             .Doctors
+            .Include(o => o.Schedules)
             .SingleOrDefaultAsync(o => o.Id == id);
     }
     
@@ -34,6 +35,7 @@ public class DoctorRepository : IDoctorRepository
     {
         return await _context
             .Doctors
+            .Include(o => o.Schedules)
             .ToListAsync();
     }
 
@@ -55,6 +57,7 @@ public class DoctorRepository : IDoctorRepository
     {
         return await _context
             .SchedulesDays
+            .Include(o => o.BusySlots)
             .SingleOrDefaultAsync(o => o.Day == date);
     }
 }

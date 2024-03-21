@@ -2,9 +2,9 @@
 Content-Type: application/json
 
 {
-  "idDoctor": "20AA6D16-FC78-4EEC-2533-08DC46B1C129",
-  "idPatient": "C65B0A46-88F7-443E-907D-08DC46B4A254",
-  "day": "2025-01-12",
+  "idDoctor": "d8cd6574-3a9d-4ee1-f191-08dc47466b67",
+  "idPatient": "a437673e-6793-415b-9788-08dc47466929",
+  "day": "2024-04-04",
   "start": "12:00:00",
-  "end": "13:00:00"
+  "end": "13:30:00"
 }

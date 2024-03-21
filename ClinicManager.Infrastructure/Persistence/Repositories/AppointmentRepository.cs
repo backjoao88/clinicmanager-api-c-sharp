@@ -1,4 +1,5 @@
 ﻿using ClinicManager.Domain.Core.Appointments;
+using ClinicManager.Domain.Core.Appointments.Enumerations;
 using ClinicManager.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,5 +24,17 @@ public class AppointmentRepository : IAppointmentRepository
     public async Task<Appointment?> ReadById(Guid id)
     {
         return await _context.Appointments.SingleOrDefaultAsync(o => o.Id == id);
+    }
+
+    /// <inheriteddoc/>
+    public async Task<List<Appointment>> ReadAll()
+    {
+        return await _context.Appointments.ToListAsync();
+    }
+
+    /// <inheriteddoc/>
+    public async Task<List<Appointment>> ReadByDoctor(Guid idDoctor)
+    {
+        return await _context.Appointments.Where(o => o.IdDoctor == idDoctor).ToListAsync();
     }
 }

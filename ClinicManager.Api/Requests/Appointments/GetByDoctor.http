@@ -1,0 +1,6 @@
+﻿GET http://localhost:5299/api/appointments/20aa6d16-fc78-4eec-2533-08dc46b1c129
+Content-Type: application/json
+
+{
+  "idDoctor": "20aa6d16-fc78-4eec-2533-08dc46b1c129"
+}

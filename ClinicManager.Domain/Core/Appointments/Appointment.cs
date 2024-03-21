@@ -1,4 +1,5 @@
-﻿using ClinicManager.Domain.Core.Appointments.Events;
+﻿using ClinicManager.Domain.Core.Appointments.Enumerations;
+using ClinicManager.Domain.Core.Appointments.Events;
 using ClinicManager.Domain.Core.Doctors;
 using ClinicManager.Domain.Core.Patients;
 using ClinicManager.Domain.Primitives;
@@ -13,6 +14,7 @@ public class Appointment : Entity
         IdPatient = idPatient;
         Start = start;
         End = end;
+        Status = EAppointmentStatus.WaitingConfirmation;
     }
     public Guid IdDoctor { get; private set; }
     public Doctor Doctor { get; private set; } = null!;
@@ -20,6 +22,7 @@ public class Appointment : Entity
     public Patient Patient { get; private set; } = null!;
     public DateTime Start { get; private set; }
     public DateTime End { get; private set; }
+    public EAppointmentStatus Status { get; private set; }
 
     /// <summary>
     /// Creates a new appointment.
@@ -35,8 +38,16 @@ public class Appointment : Entity
         var appointmentDay = new DateOnly(start.Year, start.Month, start.Day);
         var startAppointmentTime = new TimeOnly(start.Hour, start.Minute);
         var endAppointmentTime = new TimeOnly(end.Hour, end.Minute);
-        appointment.Raise(new AppointmentScheduledDomainEvent(idDoctor, appointmentDay, startAppointmentTime, endAppointmentTime));
+        appointment.Raise(new AppointmentScheduledDomainEvent(idPatient, idDoctor, appointmentDay, startAppointmentTime, endAppointmentTime));
         return appointment;
+    }
+
+    /// <summary>
+    /// Confirms an appointment.
+    /// </summary>
+    public void Confirm()
+    {
+        Status = EAppointmentStatus.Confirmed;
     }
     
 }

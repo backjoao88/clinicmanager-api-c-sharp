@@ -10,6 +10,7 @@ public abstract class Program
         var builder = WebApplication.CreateBuilder(args);
         builder.Services.AddControllers();
         builder.Services.AddPersistence();
+        builder.Services.AddEmail();
         builder.Services.AddApplication();
         var app = builder.Build();
         app.MapControllers();

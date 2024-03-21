@@ -19,4 +19,12 @@
       </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="bin\Debug\net8.0\Templates\appointment-template.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="bin\Debug\net8.0\" />
+    </ItemGroup>
+
 </Project>

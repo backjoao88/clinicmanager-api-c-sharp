@@ -1,7 +1,11 @@
-﻿using ClinicManager.Domain.Repositories;
+﻿using ClinicManager.Application.Shared.Email.Contracts;
+using ClinicManager.Domain.Repositories;
 using ClinicManager.Infrastructure.Persistence;
 using ClinicManager.Infrastructure.Persistence.Configurations;
 using ClinicManager.Infrastructure.Persistence.Repositories;
+using ClinicManager.Infrastructure.Services.Email;
+using ClinicManager.Infrastructure.Services.Email.Options;
+using ClinicManager.Infrastructure.Services.Email.Providers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -25,6 +29,15 @@ public static class DependencyInjection
             .AddScoped<IPatientRepository, PatientRepository>()
             .AddScoped<IDoctorRepository, DoctorRepository>()
             .AddScoped<IAppointmentRepository, AppointmentRepository>();
+        return services;
+    }
+
+    public static IServiceCollection AddEmail(this IServiceCollection services)
+    {
+        services
+            .ConfigureOptions<EmailOptionsSetup>()
+            .AddScoped<IIcsProvider, IcsProvider>()
+            .AddScoped<INotificationService, EmailNotificationService>();
         return services;
     }
     

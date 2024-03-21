@@ -20,8 +20,22 @@ public class ScheduleAppointmentCommandHandler : IRequestHandler<ScheduleAppoint
 
     public async Task<Result> Handle(ScheduleAppointmentCommand request, CancellationToken cancellationToken)
     {
+        var doctor = await _unitOfWork.DoctorRepository.ReadById(request.IdDoctor);
+        if (doctor is null)
+        {
+            return Result.Fail(DoctorDomainErrors.DoctorNotFound);
+        }
+        var patient = await _unitOfWork.PatientRepository.ReadById(request.IdPatient);
+        if (patient is null)
+        {
+            return Result.Fail(PatientDomainErrors.PatientNotFound);
+        }
         var availableDay = await _unitOfWork.DoctorRepository.ReadScheduleDay(request.Day);
         if (availableDay is null)
+        {
+            return Result.Fail(DoctorDomainErrors.DoctorNotAvailable);
+        }
+        if (availableDay.IsBusy(request.Start, request.End))
         {
             return Result.Fail(DoctorDomainErrors.DoctorNotAvailable);
         }

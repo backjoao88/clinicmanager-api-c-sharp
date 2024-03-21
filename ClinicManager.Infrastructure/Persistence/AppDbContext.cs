@@ -53,15 +53,15 @@ public class AppDbContext : DbContext
     /// </summary>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default!)
+    public async override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default!)
     {
         var events = ChangeTracker
             .Entries<Entity>()
             .SelectMany(o => o.Entity.Events);
         foreach(var ev in events)
         {
-            _publisher.Publish(ev);
+            await _publisher.Publish(ev);
         }
-        return base.SaveChangesAsync(cancellationToken);
+        return await base.SaveChangesAsync(cancellationToken);
     }
 }

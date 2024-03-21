@@ -1,5 +1,7 @@
 ﻿using ClinicManager.Api.Abstractions;
 using ClinicManager.Application.Appointments.Commands.Schedule;
+using ClinicManager.Application.Appointments.Queries.GetByDoctor;
+using ClinicManager.Domain.Primitives;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,4 +29,17 @@ public class AppointmentController : ApiController
         var result = await _mediator.Send(scheduleAppointmentCommand);
         return result.IsSuccess ? Created() : BadRequest(result.Error);
     }
+
+    /// <summary>
+    /// Endpoint to retrieve all appointments from a doctor.
+    /// </summary>
+    [HttpGet("{idDoctor}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetAppointmentsByDoctor(Guid idDoctor, [FromBody] GetAppointmentsByDoctorQuery getAppointmentsByDoctorQuery)
+    {
+        getAppointmentsByDoctorQuery.IdDoctor = idDoctor;
+        var appointments = await _mediator.Send(getAppointmentsByDoctorQuery);
+        return Ok(appointments);
+    }
+    
 }

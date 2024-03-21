@@ -7,10 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ClinicManager.Application\ClinicManager.Application.csproj" />
       <ProjectReference Include="..\ClinicManager.Domain\ClinicManager.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Ical.Net.NetCore" Version="4.1.11" />
       <PackageReference Include="MediatR" Version="12.2.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0-preview.1.24081.2">
         <PrivateAssets>all</PrivateAssets>
@@ -18,6 +20,7 @@
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0-preview.1.24081.2" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.0-preview.1.24080.9" />
+      <PackageReference Include="RazorEngine.NetCore" Version="3.1.0" />
     </ItemGroup>
 
     <ItemGroup>

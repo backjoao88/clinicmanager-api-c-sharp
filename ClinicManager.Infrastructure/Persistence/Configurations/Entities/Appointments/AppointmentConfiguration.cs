@@ -17,5 +17,6 @@ public class AppointmentConfiguration : BaseConfiguration<Appointment>
             .OnDelete(DeleteBehavior.Restrict);
         builder.Property(o => o.Start).IsRequired();
         builder.Property(o => o.End).IsRequired();
+        builder.Property(o => o.Status).IsRequired();
     }
 }
