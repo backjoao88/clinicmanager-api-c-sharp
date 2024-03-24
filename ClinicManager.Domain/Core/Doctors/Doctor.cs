@@ -6,10 +6,18 @@ namespace ClinicManager.Domain.Core.Doctors;
 /// <inheritdoc/>>
 public class Doctor : Entity
 {
+    /// <summary>
+    /// Required by EFCore.
+    /// </summary>
     private Doctor()
     {
     }
 
+    /// <summary>
+    /// Constructor for doctor.
+    /// </summary>
+    /// <param name="firstName"></param>
+    /// <param name="lastName"></param>
     public Doctor(string firstName, string lastName)
     {
         FirstName = firstName;
@@ -22,14 +30,5 @@ public class Doctor : Entity
     {
         get => _schedules;
         private set => _schedules = value;
-    }
-    
-    /// <summary>
-    /// Checks if the current doctor is available in a range of dates.
-    /// </summary>
-    /// <returns></returns>
-    public bool IsAvailable(TimeSpan start, TimeSpan end)
-    {
-        return false;
     }
 }

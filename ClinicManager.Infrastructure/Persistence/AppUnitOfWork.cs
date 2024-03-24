@@ -5,16 +5,19 @@ namespace ClinicManager.Infrastructure.Persistence;
 /// <inheritdoc/>>
 public class AppUnitOfWork : IUnitOfWork
 {
-    public AppUnitOfWork(IPatientRepository patientRepository, IDoctorRepository doctorRepository, IAppointmentRepository appointmentRepository,  AppDbContext appDbContext)
+    public AppUnitOfWork(AppDbContext appDbContext, IPatientRepository patientRepository, IDoctorRepository doctorRepository, IAppointmentRepository appointmentRepository,  IUserRepository userRepository)
     {
+        _appDbContext = appDbContext;
         PatientRepository = patientRepository;
         DoctorRepository = doctorRepository;
-        _appDbContext = appDbContext;
+        UserRepository = userRepository;
         AppointmentRepository = appointmentRepository;
     }
     public IPatientRepository PatientRepository { get; set; }
     public IDoctorRepository DoctorRepository { get; set; }
     public IAppointmentRepository AppointmentRepository { get; set; }
+    public IUserRepository UserRepository { get; set; }
+    
     private readonly AppDbContext _appDbContext;
     
     /// <inheritdoc/>>

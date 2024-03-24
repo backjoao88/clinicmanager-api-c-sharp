@@ -34,13 +34,17 @@ public class EmailNotificationService : INotificationService
     {
         string templateFilePath = Path.Combine("..", "ClinicManager.Infrastructure", "Services", "Email", "Templates", "appointment-template.cshtml");
         string templateString = File.ReadAllText(templateFilePath);
-        var result = Engine.Razor.RunCompile(templateString, Guid.NewGuid().ToString(), typeof(EmailMessage), message);
+        var result = Engine
+            .Razor
+            .RunCompile(templateString, Guid.NewGuid().ToString(), typeof(EmailMessage), message);
+        
         const string APPOINTMENT_SUMMARY = "Convite para atendimento médico";
         const string APPOINTMENT_DESCRIPTION = "";
         ContentType attachmentContentType = new ContentType("text/calendar");
         var mailMessage = new MailMessage();
         mailMessage.From = new MailAddress(_emailOptions.Email, _emailOptions.Name);
         mailMessage.Subject = message.Subject;
+        
         var calendarEvent = new IcsMessage(
             APPOINTMENT_SUMMARY,
             APPOINTMENT_DESCRIPTION,
@@ -48,12 +52,15 @@ public class EmailNotificationService : INotificationService
             message.EventStart,
             message.EventEnd
         );
+        
         var icsString = await _icsProvider.Generate(calendarEvent);
         var eventAttachment = Attachment.CreateAttachmentFromString(icsString, attachmentContentType);
+        
         mailMessage.Attachments.Add(eventAttachment);
         mailMessage.To.Add(message.Destinatary);
         mailMessage.IsBodyHtml = true;
         mailMessage.Body = result;
+        
         return mailMessage;
     }
 

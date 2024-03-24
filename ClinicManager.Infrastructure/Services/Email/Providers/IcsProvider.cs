@@ -17,6 +17,17 @@ public class IcsProvider : IIcsProvider
         var calendar = new Calendar();
         var calendarEvent = new CalendarEvent()
         {
+            Attendees = new List<Attendee>()
+            {
+                new Attendee()
+                {
+                    Members = new List<string>()
+                    {
+                        "backdevbmsoft@gmail.com"
+                    }
+                }
+            },
+            Organizer = new Organizer("123"),
             Summary = icsMessage.Summary,
             Description = icsMessage.Description,
             Start = new CalDateTime(icsMessage.Day.Year, icsMessage.Day.Month, icsMessage.Day.Day, icsMessage.Start.Hour, icsMessage.Start.Minute, 00),

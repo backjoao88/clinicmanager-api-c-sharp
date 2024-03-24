@@ -1,19 +1,33 @@
-﻿using ClinicManager.Application.Shared.Email.Contracts;
+﻿using ClinicManager.Application.Shared.Authentication;
+using ClinicManager.Application.Shared.Email.Contracts;
 using ClinicManager.Domain.Repositories;
 using ClinicManager.Infrastructure.Persistence;
 using ClinicManager.Infrastructure.Persistence.Configurations;
 using ClinicManager.Infrastructure.Persistence.Repositories;
+using ClinicManager.Infrastructure.Services.Authentication;
+using ClinicManager.Infrastructure.Services.Authentication.Options;
 using ClinicManager.Infrastructure.Services.Email;
 using ClinicManager.Infrastructure.Services.Email.Options;
 using ClinicManager.Infrastructure.Services.Email.Providers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Microsoft.Identity.Client;
 
 namespace ClinicManager.Infrastructure;
 
 public static class DependencyInjection
 {
+
+    public static IServiceCollection AddJwt(this IServiceCollection services)
+    {
+        services
+            .ConfigureOptions<JwtOptionsSetup>()
+            .ConfigureOptions<JwtBearerOptionsSetup>()
+            .AddScoped<IJwtService, JwtService>();
+        return services;
+    }
+    
     public static IServiceCollection AddPersistence(this IServiceCollection services)
     {
         services
@@ -26,6 +40,7 @@ public static class DependencyInjection
                 builder.UseSqlServer(appDbContextOptions.Value.ConnectionString);
             }))
             .AddScoped<IUnitOfWork, AppUnitOfWork>()
+            .AddScoped<IUserRepository, UserRepository>()
             .AddScoped<IPatientRepository, PatientRepository>()
             .AddScoped<IDoctorRepository, DoctorRepository>()
             .AddScoped<IAppointmentRepository, AppointmentRepository>();

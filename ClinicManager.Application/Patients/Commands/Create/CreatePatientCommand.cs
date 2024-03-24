@@ -4,7 +4,7 @@ using MediatR;
 namespace ClinicManager.Application.Patients.Commands.Create;
 
 /// <summary>
-/// Represents the command to create a patient command.
+/// Represents the command to create a patient.
 /// </summary>
 public class CreatePatientCommand : IRequest<Result>
 {

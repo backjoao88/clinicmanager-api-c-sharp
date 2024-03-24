@@ -1,5 +1,6 @@
 ﻿POST http://localhost:5299/api/doctors
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzZWRlMGYwMC1hYWFjLTQ3ZWYtMWI1Yy0wOGRjNGMxNjcwNTAiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJEb2N0b3IiLCJuYmYiOjE3MTEyOTM4OTAsImV4cCI6MTcxMTMxNTQ5MCwiaXNzIjoiMTIzIiwiYXVkIjoiMTIzIn0.4HoyXs4kZ16WfBTaTevwC7aBj1ZKuHqPF3ZdSJ9xkE0hP4pFjxBr0TLl_wB6cldNetQ5WZjqGgSvalvVBel8qg
 
 {
   "firstName": "João",

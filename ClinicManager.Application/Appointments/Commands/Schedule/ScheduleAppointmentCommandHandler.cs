@@ -17,7 +17,6 @@ public class ScheduleAppointmentCommandHandler : IRequestHandler<ScheduleAppoint
     {
         _unitOfWork = unitOfWork;
     }
-
     public async Task<Result> Handle(ScheduleAppointmentCommand request, CancellationToken cancellationToken)
     {
         var doctor = await _unitOfWork.DoctorRepository.ReadById(request.IdDoctor);

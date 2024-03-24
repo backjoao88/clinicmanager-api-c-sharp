@@ -1,9 +1,12 @@
 ﻿using ClinicManager.Api.Abstractions;
+using ClinicManager.Api.Attributes;
 using ClinicManager.Application.Doctors.Commands.Create;
 using ClinicManager.Application.Doctors.Commands.RolloutSchedule;
 using ClinicManager.Application.Doctors.Queries.GetAll;
 using ClinicManager.Application.Doctors.Queries.GetById;
+using ClinicManager.Domain.Core.Users.Enumerations;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicManager.Api.Controllers;
@@ -24,6 +27,7 @@ public class DoctorController : ApiController
     /// </summary>
     /// <param name="createDoctorCommand"></param>
     [HttpPost]
+    [HasPermission(ERole.Admin)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> Post([FromBody] CreateDoctorCommand createDoctorCommand)
     { 
@@ -35,6 +39,7 @@ public class DoctorController : ApiController
     /// Endpoint to get a doctor by id.
     /// </summary>
     [HttpGet("{id}")]
+    [HasPermission(ERole.Admin, ERole.Doctor, ERole.Patient)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetById(Guid id)
@@ -49,6 +54,7 @@ public class DoctorController : ApiController
     /// Endpoint to retrieve all doctors.
     /// </summary>
     [HttpGet]
+    [HasPermission(ERole.Admin, ERole.Doctor, ERole.Patient)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> Get()
     { 
@@ -60,6 +66,7 @@ public class DoctorController : ApiController
     /// Endpoint to rollout a new schedule.
     /// </summary>
     [HttpPost("{idDoctor}/schedules")]
+    [HasPermission(ERole.Admin, ERole.Doctor, ERole.Patient)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> RolloutSchedule(Guid idDoctor, [FromBody] RolloutScheduleCommand rolloutScheduleCommand)
     {

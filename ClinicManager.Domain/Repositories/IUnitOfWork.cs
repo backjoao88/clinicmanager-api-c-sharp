@@ -8,6 +8,8 @@ public interface IUnitOfWork
     public IPatientRepository PatientRepository { get; set; }
     public IDoctorRepository DoctorRepository { get; set; }
     public IAppointmentRepository AppointmentRepository { get; set; }
+    public IUserRepository UserRepository { get; set; }
+    
     /// <summary>
     /// Completes a transaction.
     /// </summary>

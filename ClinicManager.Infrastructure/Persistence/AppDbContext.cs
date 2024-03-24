@@ -2,6 +2,7 @@
 using ClinicManager.Domain.Core.Doctors;
 using ClinicManager.Domain.Core.Doctors.Schedules;
 using ClinicManager.Domain.Core.Patients;
+using ClinicManager.Domain.Core.Users;
 using ClinicManager.Domain.Primitives;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +43,7 @@ public class AppDbContext : DbContext
     public DbSet<Schedule> Schedules { get; set; } = null!;
     public DbSet<ScheduleDay> SchedulesDays { get; set; } = null!;
     public DbSet<Slot> Slots { get; set; } = null!;
+    public DbSet<User> Users { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

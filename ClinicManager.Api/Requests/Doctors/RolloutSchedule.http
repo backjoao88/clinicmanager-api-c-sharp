@@ -1,7 +1,7 @@
-﻿POST http://localhost:5299/api/doctors/d8cd6574-3a9d-4ee1-f191-08dc47466b67/schedules
+﻿POST http://localhost:5299/api/doctors/1febd4e2-55ab-4cb2-b3cc-08dc4b3cd98d/schedules
 Content-Type: application/json
 
 {
-  "idDoctor": "d8cd6574-3a9d-4ee1-f191-08dc47466b67",
-  "futureDays": 30
+  "idDoctor": "1febd4e2-55ab-4cb2-b3cc-08dc4b3cd98d",
+  "futureDays": 300
 }

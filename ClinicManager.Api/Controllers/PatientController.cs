@@ -1,8 +1,11 @@
 ﻿using ClinicManager.Api.Abstractions;
+using ClinicManager.Api.Attributes;
 using ClinicManager.Application.Patients.Commands.Create;
 using ClinicManager.Application.Patients.Queries.GetAll;
 using ClinicManager.Application.Patients.Queries.GetById;
+using ClinicManager.Domain.Core.Users.Enumerations;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicManager.Api.Controllers;
@@ -23,6 +26,7 @@ public class PatientController : ApiController
     /// </summary>
     /// <param name="createPatientCommand"></param>
     [HttpPost]
+    [HasPermission(ERole.Admin)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> Post([FromBody] CreatePatientCommand createPatientCommand)
     { 
@@ -34,6 +38,7 @@ public class PatientController : ApiController
     /// Endpoint to get a patient by id.
     /// </summary>
     [HttpGet("{id}")]
+    [HasPermission(ERole.Admin, ERole.Doctor, ERole.Patient)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetById(Guid id)
@@ -48,6 +53,7 @@ public class PatientController : ApiController
     /// Endpoint to save a new patient.
     /// </summary>
     [HttpGet]
+    [HasPermission(ERole.Admin, ERole.Doctor, ERole.Patient)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> Get()
     { 

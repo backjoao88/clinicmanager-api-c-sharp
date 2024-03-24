@@ -31,7 +31,7 @@ public class SendConfirmationEmailEventHandler : IDomainEventHandler<Appointment
             new EmailMessage(
                 (patient.FirstName + " " + patient.LastName).ToUpper(),
                 (doctor.FirstName + " " + doctor.LastName).ToUpper(),
-                "",
+                "backdevbmsoft@gmail.com",
                 "Confirmação de atendimento médico",
                 notification.Day,
                 notification.Start,
