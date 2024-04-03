@@ -1,0 +1,8 @@
+﻿POST http://localhost:5299/api/doctors/A06D476D-695D-44FC-A46E-ADC20AA4A775/schedules
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNjQ3ZTU1Zi0zMmE3LTQzNTQtYmMxZC03ZjQxNGFmNGQwNTMiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MTE2MzEwMTksImV4cCI6MTcxMTY1OTgxOSwiaXNzIjoiMTIzIiwiYXVkIjoiMTIzIn0.vmXnqnCBQ_pfiBF2nhiAaQYGljGHsftSdUeaCYRizIn--7E5r4oGsCGVry1sQoG7wOxyCA4_qrdg2WUGmZBysg
+Content-Type: application/json
+
+{
+  "idDoctor": "A06D476D-695D-44FC-A46E-ADC20AA4A775",
+  "futureDays": 10
+}

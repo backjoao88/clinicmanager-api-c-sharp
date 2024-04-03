@@ -1,0 +1,9 @@
+﻿POST http://localhost:5299/api/patients
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNjQ3ZTU1Zi0zMmE3LTQzNTQtYmMxZC03ZjQxNGFmNGQwNTMiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MTE2MzEwMTksImV4cCI6MTcxMTY1OTgxOSwiaXNzIjoiMTIzIiwiYXVkIjoiMTIzIn0.vmXnqnCBQ_pfiBF2nhiAaQYGljGHsftSdUeaCYRizIn--7E5r4oGsCGVry1sQoG7wOxyCA4_qrdg2WUGmZBysg
+Content-Type: application/json
+
+{
+  "firstName": "Gabriel",
+  "lastName": "Fiamoncini",
+  "email": ""
+}

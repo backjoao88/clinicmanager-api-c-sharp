@@ -1,0 +1,2 @@
+﻿PATCH http://localhost:5299/api/doctors/calendar/authenticate
+Content-Type: application/json

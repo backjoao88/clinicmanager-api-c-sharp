@@ -1,0 +1,10 @@
+﻿POST http://localhost:5299/api/appointments
+Content-Type: application/json
+
+{
+  "idDoctor": "A06D476D-695D-44FC-A46E-ADC20AA4A775",
+  "idPatient": "02EEB872-5FBF-4A1F-A787-6235E545DE0F",
+  "day": "2024-04-02",
+  "start": "16:00:00",
+  "end": "18:00:00"
+}

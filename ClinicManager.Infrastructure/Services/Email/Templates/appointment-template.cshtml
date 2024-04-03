@@ -1,0 +1,11 @@
+﻿<p>Prezado(a) <strong>@Model.PatientName</strong>,</p>
+<p>Sua consulta com o Dr./Dra. <strong>@Model.DoctorName</strong> está confirmada para o dia <strong>@Model.EventDay</strong> no horário das @Model.EventStart às @Model.EventEnd. 
+
+<form action=@Model.ConfirmationLink method="post">
+    <button class="btn-link">Confirmar</button>
+</form>
+<form action=@Model.CancelationLink method="post">
+    <button class="btn-link">Cancelar</button>
+</form>
+<p>Abs,</p>
+<p>Clínica Sua Saúde.</p>

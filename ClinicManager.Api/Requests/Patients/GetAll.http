@@ -1,0 +1,4 @@
+﻿GET http://localhost:5299/api/patients
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MTE1NDM4OTMsImV4cCI6MTcxMTU3MjY5MywiaXNzIjoiMTIzIiwiYXVkIjoiMTIzIn0.wOGdGMIH8WZ6hLK9pGaNfJTlSJFypqpw30RklkJ__vtqCWPL_YGlCEgDRMCwaGKYILJ3Id1Lo6YTsWsG36rvcw
+Accept: application/json
+###

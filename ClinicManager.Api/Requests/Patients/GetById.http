@@ -1,0 +1,7 @@
+﻿GET http://localhost:5299/api/patients/21b13380-932f-422c-1e63-08dc43b55a0b
+Content-Type: application/json
+
+{
+  "id": "b183b612-e845-452f-6f83-08dc3d16f11e"
+}
+###
