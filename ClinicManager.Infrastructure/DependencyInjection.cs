@@ -1,6 +1,6 @@
-﻿using ClinicManager.Application.Shared.Authentication;
-using ClinicManager.Application.Shared.Email.Contracts;
-using ClinicManager.Application.Shared.GoogleCalendar;
+﻿using ClinicManager.Application.Shared.Services.Authentication;
+using ClinicManager.Application.Shared.Services.Email.Contracts;
+using ClinicManager.Application.Shared.Services.GoogleCalendar;
 using ClinicManager.Domain.Repositories;
 using ClinicManager.Infrastructure.Persistence;
 using ClinicManager.Infrastructure.Persistence.Configurations;
@@ -34,7 +34,7 @@ public static class DependencyInjection
     public static IServiceCollection AddGoogleCalendar(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<GoogleCalendarApplicationCredentialsOptionsSetup>()
+            .ConfigureOptions<GoogleCalendarCredentialsOptionsSetup>()
             .AddScoped<IGoogleCalendarService, GoogleCalendarService>();
         return services;
     }

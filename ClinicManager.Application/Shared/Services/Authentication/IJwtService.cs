@@ -1,8 +1,6 @@
-﻿using System.Security.Claims;
-using ClinicManager.Domain.Core.Users;
-using ClinicManager.Domain.Core.Users.Enumerations;
+﻿using ClinicManager.Domain.Core.Users.Enumerations;
 
-namespace ClinicManager.Application.Shared.Authentication;
+namespace ClinicManager.Application.Shared.Services.Authentication;
 
 public interface IJwtService
 {

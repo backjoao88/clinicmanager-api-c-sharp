@@ -2,8 +2,8 @@
 using System.Net.Mail;
 using System.Net.Mime;
 using ClinicManager.Application.Shared;
-using ClinicManager.Application.Shared.Email;
-using ClinicManager.Application.Shared.Email.Contracts;
+using ClinicManager.Application.Shared.Services.Email;
+using ClinicManager.Application.Shared.Services.Email.Contracts;
 using ClinicManager.Infrastructure.Services.Email.Options;
 using Microsoft.Extensions.Options;
 using RazorEngine;
@@ -55,8 +55,7 @@ public class EmailNotificationService : INotificationService
         
         var icsString = await _icsProvider.Generate(calendarEvent);
         var eventAttachment = Attachment.CreateAttachmentFromString(icsString, attachmentContentType);
-        
-        mailMessage.Attachments.Add(eventAttachment);
+        //mailMessage.Attachments.Add(eventAttachment); como integrei pelo agendas, não adiciona o ics aqui
         mailMessage.To.Add(message.Destinatary);
         mailMessage.IsBodyHtml = true;
         mailMessage.Body = result;

@@ -1,11 +1,49 @@
-﻿<p>Prezado(a) <strong>@Model.PatientName</strong>,</p>
-<p>Sua consulta com o Dr./Dra. <strong>@Model.DoctorName</strong> está confirmada para o dia <strong>@Model.EventDay</strong> no horário das @Model.EventStart às @Model.EventEnd. 
+﻿<head>
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex-grow: 1;
+            display: flex;
+            text-align: center;
+        }
+        button {
+            background: none;
+            border: none;
+            padding: 0;
+            font-family: inherit;
+            color: #069;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+    <title>Confirmação de agendamento</title>
+</head>
 
-<form action=@Model.ConfirmationLink method="post">
-    <button class="btn-link">Confirmar</button>
-</form>
-<form action=@Model.CancelationLink method="post">
-    <button class="btn-link">Cancelar</button>
-</form>
-<p>Abs,</p>
-<p>Clínica Sua Saúde.</p>
+<body>
+    <main>
+        <div>
+            <p>Prezado(a) <strong>@Model.PatientName</strong>,</p>
+            <div class="appointment-info">
+                <p>Sua consulta com o Dr./Dra. <strong>@Model.DoctorName</strong> - <strong>@Model.DoctorSpeciality</strong> está agendada para a seguinte data:</p>
+                <p><strong>Dia:</strong> @Model.EventDay</p>
+                <p><strong>Hora:</strong> @Model.EventStart às @Model.EventEnd</p>
+            </div>
+            <form action="@Model.ConfirmationLink" method="post">
+                <strong>1. </strong> <button type="submit" name="BtnConfirm" value="" class="btn-link">Confirmar atendimento</button>
+            </form>
+            <form action="@Model.CancelationLink" method="post">
+                <strong>2. </strong> <button type="submit" name="BtnConfirm" value="" class="btn-link">Cancelar atendimento</button>
+            </form>
+
+            <p>Abs,</p>
+            <p>Clínica Sua Saúde.</p>
+        </div>
+    </main>
+</body>

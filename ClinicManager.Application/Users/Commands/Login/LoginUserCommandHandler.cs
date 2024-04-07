@@ -1,4 +1,4 @@
-﻿using ClinicManager.Application.Shared.Authentication;
+﻿using ClinicManager.Application.Shared.Services.Authentication;
 using ClinicManager.Application.Users.Views;
 using ClinicManager.Domain.Primitives;
 using ClinicManager.Domain.Primitives.Errors;

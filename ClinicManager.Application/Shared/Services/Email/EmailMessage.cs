@@ -1,16 +1,17 @@
-﻿using ClinicManager.Application.Shared.Email.Contracts;
+﻿using ClinicManager.Application.Shared.Services.Email.Contracts;
 
-namespace ClinicManager.Application.Shared.Email;
+namespace ClinicManager.Application.Shared.Services.Email;
 
 /// <summary>
 /// Represents and email body.
 /// </summary>
 public class EmailBody
 {
-    public EmailBody(string patientName, string doctorName, DateOnly eventDay, TimeOnly eventStart, TimeOnly eventEnd, string confirmationLink, string cancelationLink)
+    public EmailBody(string patientName, string doctorName, string doctorSpeciality, DateOnly eventDay, TimeOnly eventStart, TimeOnly eventEnd, string confirmationLink, string cancelationLink)
     {
         PatientName = patientName;
         DoctorName = doctorName;
+        DoctorSpeciality = doctorSpeciality;
         EventDay = eventDay;
         EventStart = eventStart;
         EventEnd = eventEnd;
@@ -19,6 +20,7 @@ public class EmailBody
     }
     public string PatientName { get; set; }
     public string DoctorName { get; set; }
+    public string DoctorSpeciality { get; set; }
     public DateOnly EventDay { get; set; }
     public TimeOnly EventStart { get; set; }
     public TimeOnly EventEnd { get; set; }

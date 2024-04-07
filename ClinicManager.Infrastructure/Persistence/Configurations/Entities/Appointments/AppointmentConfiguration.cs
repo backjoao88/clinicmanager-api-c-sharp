@@ -1,4 +1,5 @@
 ﻿using ClinicManager.Domain.Core.Appointments;
+using ClinicManager.Domain.Core.Appointments.Enumerations;
 using ClinicManager.Domain.Core.Patients;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

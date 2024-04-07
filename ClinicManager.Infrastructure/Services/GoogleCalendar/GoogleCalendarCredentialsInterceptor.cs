@@ -6,11 +6,11 @@ namespace ClinicManager.Infrastructure.Services.GoogleCalendar;
 /// <summary>
 /// Represents a custom user credentials to intercepts http requests with an access token.
 /// </summary>
-public class GoogleCalendarCredentials : IHttpExecuteInterceptor, IConfigurableHttpClientInitializer
+public class GoogleCalendarCredentialsInterceptor : IHttpExecuteInterceptor, IConfigurableHttpClientInitializer
 {
     private string _accessToken;
 
-    public GoogleCalendarCredentials(string accessToken)
+    public GoogleCalendarCredentialsInterceptor(string accessToken)
     {
         _accessToken = accessToken;
     }

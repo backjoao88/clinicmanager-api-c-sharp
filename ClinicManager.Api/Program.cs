@@ -1,3 +1,4 @@
+using ClinicManager.Api.Middlewares;
 using ClinicManager.Application;
 using ClinicManager.Infrastructure;
 
@@ -8,6 +9,7 @@ public abstract class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddScoped<ExceptionHandler>();
         builder.Services.AddControllers();
         builder.Services.AddJwt();
         builder.Services.AddAuthentication()
@@ -19,6 +21,7 @@ public abstract class Program
         builder.Services.AddEmail();
         builder.Services.AddApplication();
         var app = builder.Build();
+        app.UseMiddleware<ExceptionHandler>();
         app.MapControllers();
         app.UseAuthentication();
         app.UseAuthorization();

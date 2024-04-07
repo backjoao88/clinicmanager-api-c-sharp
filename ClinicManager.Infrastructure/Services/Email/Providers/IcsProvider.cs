@@ -1,6 +1,6 @@
 ﻿using System.Text;
-using ClinicManager.Application.Shared.Email;
-using ClinicManager.Application.Shared.Email.Contracts;
+using ClinicManager.Application.Shared.Services.Email;
+using ClinicManager.Application.Shared.Services.Email.Contracts;
 using Ical.Net;
 using Ical.Net.CalendarComponents;
 using Ical.Net.DataTypes;
@@ -14,7 +14,7 @@ public class IcsProvider : IIcsProvider
     /// <inheritdoc/>>
     public async Task<string> Generate(IcsMessage icsMessage)
     {
-        var calendar = new Calendar();
+        var calendar = new Ical.Net.Calendar();
         var calendarEvent = new CalendarEvent()
         {
             Attendees = new List<Attendee>()

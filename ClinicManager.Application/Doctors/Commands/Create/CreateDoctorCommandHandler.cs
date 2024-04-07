@@ -1,5 +1,6 @@
 ﻿using ClinicManager.Domain.Core.Doctors;
 using ClinicManager.Domain.Primitives;
+using ClinicManager.Domain.Primitives.Errors;
 using ClinicManager.Domain.Repositories;
 using MediatR;
 
@@ -19,7 +20,12 @@ public class CreateDoctorCommandHandler : IRequestHandler<CreateDoctorCommand, R
 
     public async Task<Result> Handle(CreateDoctorCommand request, CancellationToken cancellationToken)
     {
-        var doctor = new Doctor(request.FirstName, request.LastName);
+        var speciality = await _unitOfWork.DoctorRepository.ReadSpecialityById(request.IdSpeciality);
+        if (speciality is null)
+        {
+            return Result.Fail(DoctorDomainErrors.DoctorSpecialityNotAvailable);
+        }
+        var doctor = new Doctor(request.FirstName, request.LastName, request.Email, request.IdSpeciality);
         await _unitOfWork.DoctorRepository.Add(doctor);
         await _unitOfWork.Complete();
         return Result.Ok();

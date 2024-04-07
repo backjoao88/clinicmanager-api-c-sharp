@@ -78,15 +78,24 @@ namespace ClinicManager.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("IdSpeciality")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdSpeciality");
 
                     b.ToTable("tbl_Doctors", (string)null);
                 });
@@ -122,6 +131,31 @@ namespace ClinicManager.Infrastructure.Persistence.Migrations
                     b.HasIndex("IdSchedule");
 
                     b.ToTable("tbl_ScheduleDay", (string)null);
+                });
+
+            modelBuilder.Entity("ClinicManager.Domain.Core.Doctors.Specialities.Speciality", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("SpecialityArea")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbl_Specialities", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("d5ac1811-0940-4714-a7a4-f3daca4f97ed"),
+                            SpecialityArea = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("7af055b5-d9a6-4f36-9262-47e3e751fdd1"),
+                            SpecialityArea = 1
+                        });
                 });
 
             modelBuilder.Entity("ClinicManager.Domain.Core.Integration.Credential", b =>
@@ -218,6 +252,16 @@ namespace ClinicManager.Infrastructure.Persistence.Migrations
                         .HasForeignKey("ClinicManager.Domain.Core.Appointments.AppointmentCode", "Id")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ClinicManager.Domain.Core.Doctors.Doctor", b =>
+                {
+                    b.HasOne("ClinicManager.Domain.Core.Doctors.Specialities.Speciality", "Speciality")
+                        .WithMany()
+                        .HasForeignKey("IdSpeciality")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Speciality");
                 });
 
             modelBuilder.Entity("ClinicManager.Domain.Core.Doctors.Schedules.Schedule", b =>

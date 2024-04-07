@@ -1,6 +1,6 @@
 ﻿using ClinicManager.Application.Appointments.Services.Contracts;
-using ClinicManager.Application.Shared.Email;
-using ClinicManager.Application.Shared.Email.Contracts;
+using ClinicManager.Application.Shared.Services.Email;
+using ClinicManager.Application.Shared.Services.Email.Contracts;
 using ClinicManager.Domain.Core.Appointments.Events;
 using ClinicManager.Domain.Primitives.Contracts;
 using ClinicManager.Domain.Repositories;
@@ -32,6 +32,10 @@ public class SendConfirmationEmailEventHandler : IDomainEventHandler<Appointment
 
         var confirmationLink = _linkProvider.GenerateConfirmationLink(notification.ConfirmationCode);
         var cancelationLink = _linkProvider.GenerateCancelationLink(notification.ConfirmationCode);
+
+        var speciality = $"{doctor.Speciality.SpecialityArea.ToString("g").ToUpper()}";
+
+        Console.WriteLine($"Confirmation Link: {confirmationLink.BuildLink()}; Cancelation Link: {cancelationLink.BuildLink()}");
         
         await _notificationService.Send(new EmailMessage(
             "Confirmação de atendimento médico",
@@ -39,11 +43,13 @@ public class SendConfirmationEmailEventHandler : IDomainEventHandler<Appointment
             new EmailBody(
                 patient.FirstName, 
                 doctor.FirstName, 
+                speciality,
                 notification.Day,
                 notification.Start,
                 notification.End,
                 confirmationLink.BuildLink(),
                 cancelationLink.BuildLink())
         ));
+        Console.WriteLine("Email sent.");
     }
 }

@@ -1,0 +1,2 @@
+﻿GET http://localhost:5299/api/googlecalendar/authorize-link
+Accept: application/json

@@ -1,4 +1,4 @@
-﻿namespace ClinicManager.Application.Shared.Email;
+﻿namespace ClinicManager.Application.Shared.Services.Email;
 
 /// <summary>
 /// Sets up an email calendar event.

@@ -22,6 +22,7 @@
       <Folder Include="Appointments\Queries\" />
       <Folder Include="Patients\Commands\" />
       <Folder Include="Patients\Queries\" />
+      <Folder Include="Shared\Services\" />
     </ItemGroup>
 
 </Project>

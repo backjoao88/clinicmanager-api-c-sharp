@@ -1,4 +1,4 @@
-﻿namespace ClinicManager.Application.Shared.GoogleCalendar.Dtos;
+﻿namespace ClinicManager.Application.Shared.Services.GoogleCalendar.Dtos;
 
 /// <summary>
 /// Represents an authentication response from Google Calendar API.

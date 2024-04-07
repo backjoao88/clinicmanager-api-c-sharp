@@ -2,7 +2,7 @@
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using ClinicManager.Application.Shared.Authentication;
+using ClinicManager.Application.Shared.Services.Authentication;
 using ClinicManager.Domain.Core.Users.Enumerations;
 using ClinicManager.Infrastructure.Services.Authentication.Options;
 using Microsoft.Extensions.Options;

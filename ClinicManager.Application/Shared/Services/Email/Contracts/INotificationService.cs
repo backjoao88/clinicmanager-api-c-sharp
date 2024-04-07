@@ -1,4 +1,4 @@
-﻿namespace ClinicManager.Application.Shared.Email.Contracts;
+﻿namespace ClinicManager.Application.Shared.Services.Email.Contracts;
 
 /// <summary>
 /// Contract to represent a notification service.

@@ -1,4 +1,4 @@
-﻿namespace ClinicManager.Application.Shared.Email.Contracts;
+﻿namespace ClinicManager.Application.Shared.Services.Email.Contracts;
 
 /// <summary>
 /// Provides an interface to generate ICS files.

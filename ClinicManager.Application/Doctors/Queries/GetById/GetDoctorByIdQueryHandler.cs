@@ -1,4 +1,5 @@
 ﻿using ClinicManager.Application.Doctors.Views;
+using ClinicManager.Domain.Core.Doctors.Enumerations;
 using ClinicManager.Domain.Primitives;
 using ClinicManager.Domain.Primitives.Errors;
 using ClinicManager.Domain.Repositories;
@@ -25,7 +26,8 @@ public class GetDoctorByIdQueryHandler : IRequestHandler<GetDoctorByIdQuery, Res
         {
             return Result.Fail<DoctorViewModel>(DoctorDomainErrors.DoctorNotFound);
         }
-        var doctorViewModel = new DoctorViewModel(doctor.Id, doctor.FirstName, doctor.LastName);
+
+        var doctorViewModel = new DoctorViewModel(doctor.Id, doctor.FirstName, doctor.LastName, doctor.Speciality.SpecialityArea);
         return Result.Ok(doctorViewModel);
     }
 }

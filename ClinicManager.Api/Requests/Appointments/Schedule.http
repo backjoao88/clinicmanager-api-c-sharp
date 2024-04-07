@@ -1,10 +1,11 @@
 ﻿POST http://localhost:5299/api/appointments
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjczMjI0OS1lZjY2LTQ4MjgtYjE0Yi1lNDEzMjUyYTVlZWMiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MTIzMTY0NzgsImV4cCI6MTcxMjM0NTI3OCwiaXNzIjoiMTIzIiwiYXVkIjoiMTIzIn0.9gYISHkW9Tj4vzTsqbwjv947nRvsObNjQQ7QBjImytsMZVQ31WJ5_ZRv-24_YxjR0RTRaGQ1YckKOIk3X7sbZg
 Content-Type: application/json
 
 {
-  "idDoctor": "A06D476D-695D-44FC-A46E-ADC20AA4A775",
-  "idPatient": "02EEB872-5FBF-4A1F-A787-6235E545DE0F",
-  "day": "2024-04-02",
-  "start": "16:00:00",
-  "end": "18:00:00"
+  "idDoctor": "03D9C467-67FC-4222-85D3-64ED6EA3D323",
+  "idPatient": "00AE95C2-38AF-4560-9AAD-C71A47312733",
+  "day": "2024-04-08",
+  "start": "12:00:00",
+  "end": "13:00:00"
 }

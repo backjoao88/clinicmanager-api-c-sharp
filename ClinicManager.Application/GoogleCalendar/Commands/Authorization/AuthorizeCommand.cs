@@ -8,11 +8,9 @@ namespace ClinicManager.Application.GoogleCalendar.Authorize;
 /// </summary>
 public class AuthorizeCommand : IRequest<Result>
 {
-    public AuthorizeCommand(string userId, string code)
+    public AuthorizeCommand(string code)
     {
-        UserId = userId;
         Code = code;
     }
-    public string UserId { get; set; }
     public string Code { get; set; }
 }

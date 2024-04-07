@@ -19,4 +19,25 @@ public class Credential : Entity
     public string AccessToken { get; set; }
     public string RefreshToken { get; set; }
     public DateTime ExpiresIn { get; set; }
+
+    /// <summary>
+    /// Checks if the credentials are expired.
+    /// </summary>
+    /// <returns></returns>
+    public bool IsExpired()
+    {
+        return ExpiresIn > DateTime.Now;
+    }
+
+    /// <summary>
+    /// Updates with a new access token and expire date.
+    /// </summary>
+    /// <param name="accessToken"></param>
+    /// <param name="expiresIn"></param>
+    public void Update(string accessToken, DateTime expiresIn)
+    {
+        AccessToken = accessToken;
+        ExpiresIn = expiresIn;
+    }
+    
 }

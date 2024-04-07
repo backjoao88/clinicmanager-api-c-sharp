@@ -1,4 +1,5 @@
 ﻿using ClinicManager.Application.Doctors.Views;
+using ClinicManager.Domain.Core.Doctors.Enumerations;
 using ClinicManager.Domain.Repositories;
 using MediatR;
 
@@ -20,7 +21,7 @@ public class GetAllDoctorsQueryHandler : IRequestHandler<GetAllDoctorsQuery, Lis
     {
         var doctors = await _unitOfWork.DoctorRepository.ReadAll();
         var doctorsViewModels = doctors
-            .Select(o => new DoctorViewModel(o.Id, o.FirstName, o.LastName))
+            .Select(o => new DoctorViewModel(o.Id, o.FirstName, o.LastName, o.Speciality.SpecialityArea))
             .ToList();
         return doctorsViewModels;
     }

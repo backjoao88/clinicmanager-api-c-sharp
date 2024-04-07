@@ -16,7 +16,7 @@ public class LinkProvider : ILinkProvider
     /// <inheritdoc/>>
     public Link GenerateCancelationLink(string confirmationCode)
     {
-        return new Link("localhost", "api/appointments/cancel", 5499, new Dictionary<string, string>()
+        return new Link("localhost", "api/appointments/cancel", 5299, new Dictionary<string, string>()
         {
             { "code", confirmationCode}
         });

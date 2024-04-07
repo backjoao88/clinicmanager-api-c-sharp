@@ -1,8 +1,10 @@
 ﻿POST http://localhost:5299/api/doctors
-Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNjQ3ZTU1Zi0zMmE3LTQzNTQtYmMxZC03ZjQxNGFmNGQwNTMiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MTE2MzEwMTksImV4cCI6MTcxMTY1OTgxOSwiaXNzIjoiMTIzIiwiYXVkIjoiMTIzIn0.vmXnqnCBQ_pfiBF2nhiAaQYGljGHsftSdUeaCYRizIn--7E5r4oGsCGVry1sQoG7wOxyCA4_qrdg2WUGmZBysg
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMDFhZDcwOC02ZjcyLTRmNTgtODI2MC0zYzM4Y2ExMzI5NGMiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MTIzMTgwNjMsImV4cCI6MTcxMjM0Njg2MywiaXNzIjoiMTIzIiwiYXVkIjoiMTIzIn0.n1XiZqi8m3J7akDstV-YNPqHVOpItDdoSkYYgbYs842cBwG7r0VRznKqHe0CQPRRvtska_J0in_uwHIQ7aOBOw
 Content-Type: application/json
 
 {
   "firstName": "João",
-  "lastName": "Paulo Back"
+  "lastName": "Paulo Back",
+  "email": "backdevbmsoft@gmail.com",
+  "idSpeciality": "7AF055B5-D9A6-4F36-9262-47E3E751FDD1"
 }

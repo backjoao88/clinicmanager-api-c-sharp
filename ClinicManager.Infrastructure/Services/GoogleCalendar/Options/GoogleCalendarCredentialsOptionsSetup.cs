@@ -3,12 +3,12 @@ using Microsoft.Extensions.Options;
 
 namespace ClinicManager.Infrastructure.Services.GoogleCalendar.Options;
 
-public class GoogleCalendarApplicationCredentialsOptionsSetup : IConfigureOptions<GoogleCalendarCredentialsOptions>
+public class GoogleCalendarCredentialsOptionsSetup : IConfigureOptions<GoogleCalendarCredentialsOptions>
 {
     private readonly IConfiguration _configuration;
     private const string GoogleCalendarApplicationCredentialsSectionName = "Calendar:Credentials";
 
-    public GoogleCalendarApplicationCredentialsOptionsSetup(IConfiguration configuration)
+    public GoogleCalendarCredentialsOptionsSetup(IConfiguration configuration)
     {
         _configuration = configuration;
     }

@@ -20,6 +20,7 @@ public class ScheduleAppointmentCommandHandler : IRequestHandler<ScheduleAppoint
     public async Task<Result> Handle(ScheduleAppointmentCommand request, CancellationToken cancellationToken)
     {
         var doctor = await _unitOfWork.DoctorRepository.ReadById(request.IdDoctor);
+        
         if (doctor is null)
         {
             return Result.Fail(DoctorDomainErrors.DoctorNotFound);

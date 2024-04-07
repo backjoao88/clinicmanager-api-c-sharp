@@ -4,7 +4,6 @@ using ClinicManager.Application.Doctors.Commands.Create;
 using ClinicManager.Application.Doctors.Commands.RolloutSchedule;
 using ClinicManager.Application.Doctors.Queries.GetAll;
 using ClinicManager.Application.Doctors.Queries.GetById;
-using ClinicManager.Application.Shared.GoogleCalendar;
 using ClinicManager.Domain.Core.Users.Enumerations;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

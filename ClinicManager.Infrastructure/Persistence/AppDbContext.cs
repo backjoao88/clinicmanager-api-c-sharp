@@ -1,6 +1,7 @@
 ﻿using ClinicManager.Domain.Core.Appointments;
 using ClinicManager.Domain.Core.Doctors;
 using ClinicManager.Domain.Core.Doctors.Schedules;
+using ClinicManager.Domain.Core.Doctors.Specialities;
 using ClinicManager.Domain.Core.Integration;
 using ClinicManager.Domain.Core.Patients;
 using ClinicManager.Domain.Core.Users;
@@ -47,6 +48,7 @@ public class AppDbContext : DbContext
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<AppointmentCode> AppointmentCodes { get; set; } = null!;
     public DbSet<Credential> Credentials { get; set; } = null!;
+    public DbSet<Speciality> Specialities { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

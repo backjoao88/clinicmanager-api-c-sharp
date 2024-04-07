@@ -1,10 +1,11 @@
-﻿using ClinicManager.Application.Shared.GoogleCalendar;
+﻿using ClinicManager.Application.GoogleCalendar.Authorize;
+using ClinicManager.Application.Shared.Services.GoogleCalendar;
 using ClinicManager.Domain.Core.Integration;
 using ClinicManager.Domain.Primitives;
 using ClinicManager.Domain.Repositories;
 using MediatR;
 
-namespace ClinicManager.Application.GoogleCalendar.Authorize;
+namespace ClinicManager.Application.GoogleCalendar.Commands.Authorization;
 
 /// <summary>
 /// Represents the <see cref="AuthorizeCommand"/> handler.
@@ -22,8 +23,6 @@ public class AuthorizeCommandHandler : IRequestHandler<AuthorizeCommand, Result>
 
     public async Task<Result> Handle(AuthorizeCommand request, CancellationToken cancellationToken)
     {
-        //var user = await _unitOfWork.UserRepository.ReadByEmail(request.UserId);
-        //if (user is null) return Result.Fail(default!);
         var googleCredentialsResponse = await _googleCalendarService.HandleAuthorizationCode(request.Code);
         await _unitOfWork.CredentialRepository.Add(new Credential(
             googleCredentialsResponse.Issuer,

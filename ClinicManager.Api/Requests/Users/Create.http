@@ -1,8 +1,9 @@
 ﻿POST http://localhost:5299/api/users
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYTY5YzMzZC04YjcxLTQzMmEtYTU0Yi05OWZmMzIwNDU0NzEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE3MTIyMzMzODgsImV4cCI6MTcxMjI2MjE4OCwiaXNzIjoiMTIzIiwiYXVkIjoiMTIzIn0.Z4_d6Gb7s10hG9xiBeflnAXZDpthTeFzRgUYGjAItW9P2izPLguC-VjBxtoNBGhnka2A5eIiMGl62KvBKQVwDg
 Content-Type: application/json
 
 {
-  "email": "joao@gmail.com",
+  "email": "backdevbmsoft@gmail.com",
   "password": "joao",
   "role": 1
 }

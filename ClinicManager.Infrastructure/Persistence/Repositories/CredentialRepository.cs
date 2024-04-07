@@ -26,4 +26,10 @@ public class CredentialRepository : ICredentialRepository
     {
         return await _context.Credentials.SingleOrDefaultAsync(o => o.Id == id);
     }
+
+    /// <inheriteddoc/>
+    public async Task<Credential?> ReadByEmail(string email)
+    {
+        return await _context.Credentials.OrderBy(o => o.ExpiresIn).LastOrDefaultAsync();
+    }
 }
